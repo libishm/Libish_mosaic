@@ -1,5 +1,7 @@
 # ROS Noetic Moveit with UR10e
 
+repo with submodules [here](https://github.com/vinceHuyghe/moveit1_ur)
+
 ## Description
 
 Contents of container:
