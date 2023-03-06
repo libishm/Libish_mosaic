@@ -354,13 +354,13 @@ def segment_shards_cuda(input_path: str,
 
 if __name__ == '__main__':
 
-    segment_shards(input_path='/home/v/02_24_15_20.ply',
-                   path_output='/home/v/',
+    segment_shards(input_path='/home/libish/03_06_19_04.ply',
+                   path_output='/home/libish/segmented_shards',
                    output=True,
-                   num_shards=11,
+                   num_shards=20,
                    vis=True,
-                   ground_plane_threshold=0.002,
-                   cluster_eps=0.01,
+                   ground_plane_threshold=0.0015,
+                   cluster_eps=0.009,
                    cluster_min_points=200,
                    cluster_plane_threshold=0.002
                    )
