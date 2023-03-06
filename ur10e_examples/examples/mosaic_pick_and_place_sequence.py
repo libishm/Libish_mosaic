@@ -17,19 +17,19 @@ from move_group_utils.move_group_utils import (MoveGroupUtils, make_mesh,
 from pilz_robot_program.pilz_robot_program import (Lin, Ptp, Sequence,
                                                    SequencePlanningError)
 
-PATH = '/home/v/segmented_shards_24_02_15_22_31/'
+PATH = '/home/libish/segmented_shards/segmented_shards_06_03_12_51_19/'
 SIM = False
-ATTACH = True
+ATTACH = False
 COLORMAP = plt.cm.get_cmap('tab20')
 
 # motion parameters
-HOME = (0.0, -pi/2.0, pi/2.0, -pi, -pi/2, 0)
+HOME = (-pi, -pi/2.0, pi/2.0, -pi, -pi/2, 0)
 APPROACH_OFFSET = 0.08
-BLEND = 0.070
+BLEND = 0.030
 PICK_VEL = 0.1
 PICK_ACC = 0.1
-MOVE_VEL = 0.8
-MOVE_ACC = 0.8
+MOVE_VEL = 0.6
+MOVE_ACC = 0.6
 
 DO: int = 4
 WAIT: float = 0.1
@@ -51,9 +51,9 @@ def load_shard_data(dir_path: str, frame_id: str
     for i in range(data['shards']['num_shards']):
         pick.append([float(data['shards']['shard_' + str(i)]['pick']['position']['x']),
                      float(data['shards']['shard_' +
-                                          str(i)]['pick']['position']['y']),
+                                          str(i)]['pick']['position']['y'])-0.007,
                      float(data['shards']['shard_' +
-                                          str(i)]['pick']['position']['z']),
+                                          str(i)]['pick']['position']['z'])+0.015,
                      float(data['shards']['shard_' +
                                           str(i)]['pick']['quaternion']['x']),
                      float(data['shards']['shard_' +
@@ -64,9 +64,9 @@ def load_shard_data(dir_path: str, frame_id: str
         # place.append([pick[i][0]+0.3, pick[i][1], pick[i][2], pick[i][3], pick[i][4], pick[i][5], pick[i][6]])
         place.append([float(data['shards']['shard_' + str(i)]['place']['position']['x']),
                      float(data['shards']['shard_' +
-                                          str(i)]['place']['position']['y']),
+                                          str(i)]['place']['position']['y'])-0.007,
                      float(data['shards']['shard_' +
-                                          str(i)]['place']['position']['z']),
+                                          str(i)]['place']['position']['z'])+0.024,
                      float(data['shards']['shard_' +
                                           str(i)]['place']['quaternion']['x']),
                      float(data['shards']['shard_' +
