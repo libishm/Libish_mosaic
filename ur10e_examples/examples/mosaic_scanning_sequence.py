@@ -2,6 +2,7 @@
 from datetime import datetime
 from math import pi
 from typing import Tuple
+import cv2 as cv
 
 import rospy
 from geometry_msgs.msg import Point, Pose, PoseStamped, Quaternion, Vector3
@@ -20,13 +21,13 @@ from pilz_robot_program.pilz_robot_program import Lin, Ptp, Sequence
 # motion parameters
 # --------------------------------------------
 
-# left side of table
-HOME = (0.0, -pi/2.0, pi/2.0, 0, pi/2, pi)
-TP_PATH = '/dev_ws/src/ur10e_examples/toolpaths/mosaic_scan_L.yaml'
+# # left side of table
+# HOME = (0.0, -pi/2.0, pi/2.0, 0, pi/2, pi)
+# TP_PATH = '/dev_ws/src/ur10e_examples/toolpaths/mosaic_scan_L.yaml'
 
-# # right side of table
-# HOME = (-pi, -pi/2.0, pi/2.0, 0, pi/2, pi)
-# TP_PATH = '/dev_ws/src/ur10e_examples/toolpaths/mosaic_scan_R.yaml'
+# right side of table
+HOME = (-pi, -pi/2.0, pi/2.0, 0, pi/2, pi)
+TP_PATH = '/dev_ws/src/ur10e_examples/toolpaths/mosaic_scan_R.yaml'
 
 MOVE_VEL = 0.5
 MOVE_ACC = 0.5
@@ -37,7 +38,7 @@ BLEND = 0.01
 # reconstruction parameters
 # --------------------------------------------
 SCAN = True
-OUTPUT_DIR = '/home/v/'
+OUTPUT_DIR = '/home/libish/'
 
 
 def gen_recon_msg(path: str = OUTPUT_DIR) -> Tuple[StartReconstructionRequest,
@@ -54,7 +55,7 @@ def gen_recon_msg(path: str = OUTPUT_DIR) -> Tuple[StartReconstructionRequest,
     start_srv_req.tsdf_params.min_box_values = Vector3(x=0.0, y=0.0, z=0.0)
     start_srv_req.tsdf_params.max_box_values = Vector3(x=0.0, y=0.0, z=0.0)
     start_srv_req.rgbd_params.depth_scale = 1000
-    start_srv_req.rgbd_params.depth_trunc = 0.15
+    start_srv_req.rgbd_params.depth_trunc = 0.20
     start_srv_req.rgbd_params.convert_rgb_to_intensity = False
 
     stop_srv_req = StopReconstructionRequest()
