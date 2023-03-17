@@ -17,7 +17,7 @@ from move_group_utils.move_group_utils import (MoveGroupUtils, make_mesh,
 from pilz_robot_program.pilz_robot_program import (Lin, Ptp, Sequence,
                                                    SequencePlanningError)
 
-PATH = '/home/libish/segmented_shards/segmented_shards_06_03_12_51_19/'
+PATH = '/home/libish/segmented_shards/segmented_shards_15_03_10_22_31/'
 SIM = False
 ATTACH = False
 COLORMAP = plt.cm.get_cmap('tab20')
@@ -25,7 +25,7 @@ COLORMAP = plt.cm.get_cmap('tab20')
 # motion parameters
 HOME = (-pi, -pi/2.0, pi/2.0, -pi, -pi/2, 0)
 APPROACH_OFFSET = 0.08
-BLEND = 0.030
+BLEND = 0.020
 PICK_VEL = 0.1
 PICK_ACC = 0.1
 MOVE_VEL = 0.6
@@ -47,8 +47,11 @@ def load_shard_data(dir_path: str, frame_id: str
                      orientation=Quaternion(0.0, 0.0, 0.0, 1.0))
 
     data = yaml.load(open(dir_path + 'log.yaml', 'r'), Loader=yaml.FullLoader)
+ 
+    # load pick and place poses from shard 29 onwards
 
-    for i in range(data['shards']['num_shards']):
+    # for i in range(data['shards']['num_shards']):
+    for i in range(58,data['shards']['num_shards']):
         pick.append([float(data['shards']['shard_' + str(i)]['pick']['position']['x']),
                      float(data['shards']['shard_' +
                                           str(i)]['pick']['position']['y'])-0.007,
@@ -66,7 +69,7 @@ def load_shard_data(dir_path: str, frame_id: str
                      float(data['shards']['shard_' +
                                           str(i)]['place']['position']['y'])-0.007,
                      float(data['shards']['shard_' +
-                                          str(i)]['place']['position']['z'])+0.024,
+                                          str(i)]['place']['position']['z'])+0.015,
                      float(data['shards']['shard_' +
                                           str(i)]['place']['quaternion']['x']),
                      float(data['shards']['shard_' +
