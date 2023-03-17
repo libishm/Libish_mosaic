@@ -1,44 +1,7 @@
-...
- # Import ROS libraries and messages
-...
-
-# Import OpenCV libraries and tools
-import rospy
-from cv_bridge import CvBridge, CvBridgeError
 import cv2 as cv
 import numpy as np
 import argparse
 import random as rng
-
-...
-
- # Initialize the CvBridge class
-bridge = CvBridge()
-
- # Define a function to show the image in an OpenCV Window
-def show_image(img):
-     cv.imshow("Image Window", img)
-     cv.waitKey(3)
-
- # Define a callback for the Image message
-def image_callback(img_msg):
-     # log some info about the image topic
-     rospy.loginfo(img_msg.header)
-
-     # Try to convert the ROS Image message to a CV2 Image
-     try:
-         cv_image = bridge.imgmsg_to_cv2(img_msg, "passthrough")
-     except CvBridgeError, e:
-         rospy.logerr("CvBridge Error: {0}".format(e))
-
-     # Show the converted image
-     show_image(cv_image)
-
- # Initalize a subscriber to the "/camera/rgb/image_raw" topic with the function "image_callback" as a callback
-sub_image = rospy.Subscriber("/camera/rgb/camera_depth_image_raw",img_msg, image_callback)
-
- # Initialize an OpenCV Window named "Image Window"
-cv.namedWindow("Image Window", 1)
 
 rng.seed(12345)
 
@@ -62,6 +25,11 @@ def thresh_callback(val):
     cv.imshow('Contours', drawing)
     l = len(contours)
     print(l)
+    for c in range(len(contours)):
+     n_contour = contours[c]
+    for d in range(len(n_contour)):
+       XY_Coordinates = n_contour[d]
+       print(XY_Coordinates)
 
 # Load source image
 parser = argparse.ArgumentParser(description='Code for Finding contours in your image tutorial.')
@@ -90,30 +58,3 @@ k = cv.waitKey(0)
 
 if k == ord("q"):
     cv.destroyAllWindows()
-
-    
-# extract the image from the message
-#     try:
-#         cv_image = bridge.imgmsg_to_cv2(img_msg, "passthrough")
-#     except CvBridgeError, e:
-#         rospy.logerr("CvBridge Error: {0}".format(e))
-
-#     # Show the converted image
-#     show_image(cv_image)
-
-# extract the contours from the image
-#     contours, hierarchy = cv2.findContours(cv_image, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
-#     #draw the contours
-#     cv2.drawContours(cv_image, contours, -1, (0,255,0), 3)
-#     #show the image
-#     show_image(cv_image)
-
-# list lenght of contours
-#     print len(contours)
-
-# publish lenght of contours as a ros message
-
-#  Loop to keep the program from shutting down unless ROS is shut down, or CTRL+C is pressed
- while not rospy.is_shutdown():
-     rospy.spin()
-
