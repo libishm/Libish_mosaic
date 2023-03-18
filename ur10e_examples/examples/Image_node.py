@@ -39,11 +39,24 @@ def image_callback(img_msg):
     except CvBridgeError:
         rospy.logerr("CvBridge Error: {0}".format(e))   
     
-    th, dst = cv.threshold(cv_image, 0, 255, cv.THRESH_BINARY); 
-    cv.imshow("opencv-threshold-example.png", dst); 
-
+    # th, dst = cv.threshold(cv_image, 0, 180 , cv.THRESH_BINARY); 
+    # cv.imshow("Threshold_image", dst); 
+    imgray = cv.cvtColor(cv_image , cv.COLOR_BGR2GRAY)
+    ret, thresh = cv.threshold(imgray, 127, 255, 0)
+    contours, hierarchy = cv.findContours(thresh, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+    contours = cv.drawContours(cv_image, contours, -1, (0,255,0), 3)
+    cv.imshow('',contours); 
+    length = len(contours)
+    for c in range(len(contours)):
+     n_contour = contours[c]
+     for d in range(len(n_contour)):
+        XY_Coordinates = n_contour[d]
+    
+    
     # Count the shards
-    numShards = 1
+    numShards = length
+    contour_points = XY_Coordinates
+    # print(numShards)
     if pub is not None:
         pub.publish(numShards)
     # # Show the converted image
