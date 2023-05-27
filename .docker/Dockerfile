@@ -188,8 +188,6 @@ WORKDIR /dev_ws/src
 RUN rosdep init && \
     rosdep update && \
     rosdep install --from-paths --ignore-src --ros-distro-id noetic \
-        --repo-name http://packages.ros.org/ros \
-        --repo-name http://packages.ros.org/ros-noetic-ros-base \
         --repo-name http://packages.ros.org/perception_open3d \
         open3d_conversions
         
