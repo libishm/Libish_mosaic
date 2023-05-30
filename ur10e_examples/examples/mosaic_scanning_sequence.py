@@ -23,11 +23,17 @@ from pilz_robot_program.pilz_robot_program import Lin, Ptp, Sequence
 
 # # left side of table
 # HOME = (0.0, -pi/2.0, pi/2.0, 0, pi/2, pi)
-# TP_PATH = '/dev_ws/src/ur10e_examples/toolpaths/mosaic_scan_L.yaml'
+# TP_PATH = '/dev_ws/src/ur10e_examples/toolpaths/mosaic_scan_L.yaHOME = (-pi/2, -pi/2.0, -pi/2.0, pi, 4.71239, pi)
+ml'
 
-# right side of table
-HOME = (-pi, -pi/2.0, pi/2.0, 0, pi/2, pi)
-TP_PATH = '/dev_ws/src/ur10e_examples/toolpaths/mosaic_scan_R.yaml'
+# # right side of table
+# HOME = (-pi, -pi/2.0, pi/2.0, 0, pi/2, pi)
+# TP_PATH = '/dev_ws/src/ur10e_examples/toolpaths/mosaic_scan_R.yaml'
+
+# # front side of table
+HOME = (-pi/2, -pi/2.0, -pi/2.0, pi, 4.71239, pi)
+TP_PATH = '/dev_ws/src/ur10e_examples/toolpaths/mosaic_scan_F.yaml'
+
 
 MOVE_VEL = 0.5
 MOVE_ACC = 0.5
