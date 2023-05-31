@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends\
     iputils-ping \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
- 
+
 RUN pip3 install --no-cache-dir --upgrade pip\
     argcomplete \
     flake8-blind-except \
@@ -169,8 +169,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends\
     ros-$ROS_DISTRO-image-publisher \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
-    
-    
+
 RUN ["/bin/bash", "-c", "git clone https://github.com/libuvc/libuvc.git &&\
     cd libuvc &&\
     mkdir build && cd build &&\
@@ -181,8 +180,6 @@ RUN ["/bin/bash", "-c", "git clone https://github.com/libuvc/libuvc.git &&\
 WORKDIR /dev_ws/src
 RUN ["/bin/bash", "-c", "git clone https://github.com/orbbec/ros_astra_camera.git"]
 
-
-WORKDIR /opt/ros/noetic/src
 
 # Bash final stage
 # ----------------------------------------
