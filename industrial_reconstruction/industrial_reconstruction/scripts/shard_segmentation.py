@@ -48,19 +48,20 @@ def segment_shards(input_path: str,
     if vis:
         plane.paint_uniform_color([1, 0, 0])
         o3d.visualization.draw_geometries([pcd, plane])
-    
+
     print(num_shards)
     # cluster
     # ----------------
     clusters, l = segment_clusters(
         pcd, eps=cluster_eps, min_points=cluster_min_points)
-    print(f'clusters segmented successfully, found {l["num_clusters"]} clusters with lengths {l["cluster_len"]}')
+    print(
+        f'clusters segmented successfully, found {l["num_clusters"]} clusters with lengths {l["cluster_len"]}')
 
     print(num_shards)
 
     clusters = clusters[:num_shards]
     clusters = clusters[:-1]
-    
+
     if output:
         log['shards'].update({'num_shards': num_shards})
 
@@ -231,7 +232,6 @@ def segment_shards_cuda(input_path: str,
             clusters_colored.append(cluster.clone().paint_uniform_color(
                 C_MAP(i / (l['num_clusters']))[:3]).to_legacy())
         o3d.visualization.draw_geometries(clusters_colored)
-   
 
     # compute boundary
     # ----------------
@@ -357,8 +357,8 @@ def segment_shards_cuda(input_path: str,
 
 
 if __name__ == '__main__':
- 
-    segment_shards(input_path='/home/libish/03_15_09_49.ply',
+
+    segment_shards(input_path='/home/libish/06_01_09_17.ply',
                    path_output='/home/libish/segmented_shards',
                    output=False,
                    num_shards=61,

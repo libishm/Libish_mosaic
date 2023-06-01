@@ -1,41 +1,84 @@
 #GH generated yaml
 path:
  - pose_id: 0
-   position: [-0.4, -0.55, 0.15]
+   position: [-0.4, -30, 0.15]
    quaternion: [0, 1.0, 0.0, 0.0]
  - pose_id: 1
-   position: [-0.4, 0.55, 0.15]
+   position: [-0.4, 30, 0.15]
    quaternion: [0, 1.0, 0.0, 0.0]
  - pose_id: 2
-   position: [-0.475, 0.55, 0.15]
+   position: [-0.475, 30, 0.15]
    quaternion: [0, 1.0, 0.0, 0.0]
  - pose_id: 3
-   position: [-0.475, -0.55, 0.15]
+   position: [-0.475, -30, 0.15]
    quaternion: [0, 1.0, 0.0, 0.0]
- - pose_id: 4
-   position: [-0.55, -0.55, 0.15]
-   quaternion: [0, 1.0, 0.0, 0.0]
- - pose_id: 5
-   position: [-0.55, 0.55, 0.15]                                          
-   quaternion: [0, 1.0, 0.0, 0.0]
- - pose_id: 6
-   position: [-0.615, 0.55, 0.15]
-   quaternion: [0, 1.0, 0.0, 0.0]
- - pose_id: 7
-   position: [-0.615, -0.55, 0.15]
-   quaternion: [0, 1.0, 0.0, 0.0]
- - pose_id: 8
-   position: [-0.7, -0.55, 0.15]
-   quaternion: [0, 1.0, 0.0, 0.0]
- - pose_id: 9
-   position: [-0.7, 0.55, 0.15]
-   quaternion: [0, 1.0, 0.0, 0.0]
- - pose_id: 10
-   position: [-0.775, 0.55, 0.15]
-   quaternion: [0, 1.0, 0.0, 0.0]
- - pose_id: 11
-   position: [-0.775, -0.55, 0.15]
-   quaternion: [0, 1.0, 0.0, 0.0]
+#  - pose_id: 4
+#    position: [-30, -30, 0.15]
+#    quaternion: [0, 1.0, 0.0, 0.0]
+#  - pose_id: 5
+#    position: [-30, 30, 0.15]                                          
+#    quaternion: [0, 1.0, 0.0, 0.0]
+#  - pose_id: 6
+#    position: [-0.615, 30, 0.15]
+#    quaternion: [0, 1.0, 0.0, 0.0]
+#  - pose_id: 7
+#    position: [-0.615, -30, 0.15]
+#    quaternion: [0, 1.0, 0.0, 0.0]
+#  - pose_id: 8
+#    position: [-0.7, -30, 0.15]
+#    quaternion: [0, 1.0, 0.0, 0.0]
+#  - pose_id: 9
+#    position: [-0.7, 30, 0.15]
+#    quaternion: [0, 1.0, 0.0, 0.0]
+#  - pose_id: 10
+#    position: [-0.775, 30, 0.15]
+#    quaternion: [0, 1.0, 0.0, 0.0]
+#  - pose_id: 11
+#    position: [-0.775, -30, 0.15]
+#    quaternion: [0, 1.0, 0.0, 0.0]
+
+
+
+
+# #GH generated yaml
+# path:
+#  - pose_id: 0
+#    position: [-0.4, -30, 0.15]
+#    quaternion: [0, 1.0, 0.0, 0.0]
+#  - pose_id: 1
+#    position: [-0.4, 30, 0.15]
+#    quaternion: [0, 1.0, 0.0, 0.0]
+#  - pose_id: 2
+#    position: [-0.475, 30, 0.15]
+#    quaternion: [0, 1.0, 0.0, 0.0]
+#  - pose_id: 3
+#    position: [-0.475, -30, 0.15]
+#    quaternion: [0, 1.0, 0.0, 0.0]
+#  - pose_id: 4
+#    position: [-30, -30, 0.15]
+#    quaternion: [0, 1.0, 0.0, 0.0]
+#  - pose_id: 5
+#    position: [-30, 30, 0.15]                                          
+#    quaternion: [0, 1.0, 0.0, 0.0]
+#  - pose_id: 6
+#    position: [-0.615, 30, 0.15]
+#    quaternion: [0, 1.0, 0.0, 0.0]
+#  - pose_id: 7
+#    position: [-0.615, -30, 0.15]
+#    quaternion: [0, 1.0, 0.0, 0.0]
+#  - pose_id: 8
+#    position: [-0.7, -30, 0.15]
+#    quaternion: [0, 1.0, 0.0, 0.0]
+#  - pose_id: 9
+#    position: [-0.7, 30, 0.15]
+#    quaternion: [0, 1.0, 0.0, 0.0]
+#  - pose_id: 10
+#    position: [-0.775, 30, 0.15]
+#    quaternion: [0, 1.0, 0.0, 0.0]
+#  - pose_id: 11
+#    position: [-0.775, -30, 0.15]
+#    quaternion: [0, 1.0, 0.0, 0.0]
+
 
 # # #scan the place position
 #  path:
