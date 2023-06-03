@@ -358,10 +358,10 @@ def segment_shards_cuda(input_path: str,
 
 if __name__ == '__main__':
 
-    segment_shards(input_path='/home/libish/06_01_09_17.ply',
-                   path_output='/home/libish/segmented_shards',
+    segment_shards(input_path='/home/mrac/libish/06_02_15_51.ply',
+                   path_output='/home/mrac/libish/segmented_shards',
                    output=False,
-                   num_shards=61,
+                   num_shards=7,
                    vis=True,
                    ground_plane_threshold=0.002,
                    cluster_eps=0.01,
