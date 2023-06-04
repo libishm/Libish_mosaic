@@ -21,7 +21,7 @@ def segment_shards(input_path: str,
                    output: bool = False,
                    num_shards: int = 9,
                    vis: bool = False,
-                   ground_plane_threshold: float = 0.008,
+                   ground_plane_threshold: float = 0.005,
                    cluster_eps: float = 0.02,
                    cluster_min_points: int = 200,
                    cluster_plane_threshold: float = 0.002
@@ -358,12 +358,12 @@ def segment_shards_cuda(input_path: str,
 
 if __name__ == '__main__':
 
-    segment_shards(input_path='/home/mrac/libish/06_02_15_51.ply',
+    segment_shards(input_path='/home/mrac/libish/shards.ply',
                    path_output='/home/mrac/libish/segmented_shards',
-                   output=False,
-                   num_shards=7,
+                   output=True,
+                   num_shards=13,
                    vis=True,
-                   ground_plane_threshold=0.002,
+                   ground_plane_threshold=0.0039,
                    cluster_eps=0.01,
                    cluster_min_points=150,
                    cluster_plane_threshold=0.002)

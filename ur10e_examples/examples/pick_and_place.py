@@ -16,7 +16,7 @@ from move_group_utils.move_group_utils import (MoveGroupUtils, make_mesh,
                                                publish_trajectory_markers)
 from pilz_robot_program.pilz_robot_program import Lin, Ptp, Sequence
 
-PATH = '/home/v/segmented_shards_16_02_19_54_04/'
+PATH = '/home/mrac/libish/segmented_shards/segmented_shards_04_06_15_14_28'
 SIM = True
 ATTACH = True
 COLORMAP = plt.cm.get_cmap('tab20')
@@ -90,20 +90,18 @@ def pick_and_place():
 
     # add ground_cube collision object
     mgi.setup_scene()
-    
+
     # add shards as collision objects
     for i, collision_object in enumerate(co):
         mgi.add_collision_object(collision_object)
         color = COLORMAP(i / len(co))[:3]
         mgi.set_color(collision_object.id, color[0], color[1], color[2], 1.0)
     mgi.send_colors()
-    
 
     if not SIM:
         # wait for ur_hardware_interface/set_io service
         rospy.wait_for_service('ur_hardware_interface/set_io', 30)
         set_io = rospy.ServiceProxy('ur_hardware_interface/set_io', SetIO)
-
 
     # display poses in rviz
     mgi.publish_pose_array(poses)
@@ -127,13 +125,13 @@ def pick_and_place():
                 set_io(0, DO, 1)
                 rospy.sleep(0.2)
             if ATTACH and j == 0:
-                    mgi.robot.manipulator.attach_object(co[int(i/2)].id)
+                mgi.robot.manipulator.attach_object(co[int(i/2)].id)
 
             if not SIM and j == 1:
                 set_io(0, DO, 0)
                 rospy.sleep(0.2)
             if ATTACH and j == 1:
-                    mgi.robot.manipulator.detach_object(co[int(i/2)].id)
+                mgi.robot.manipulator.detach_object(co[int(i/2)].id)
 
             if not mgi.plan_and_execute(Lin(goal=approach, vel_scale=MOVE_VEL, acc_scale=MOVE_ACC)):
                 return
